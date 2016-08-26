@@ -34,7 +34,7 @@ getMetaInformationFromHTML(html)
   // ]
 })
 ```
-> NOTE: Only looks for <meta> tags in the child nodes of the html provided. (Ie. <head><meta><head>)
+> NOTE: Only looks for <meta> tags in the child nodes of the html provided. (Ie. `<head><meta><head>`)
 
 ## Test
 ```

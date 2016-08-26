@@ -1,6 +1,6 @@
 {
   "name": "@joegesualdo/get-meta-information-from-html",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Get <meta> tags information from HTML.",
   "repository": "joegesualdo/get-meta-information-from-html",
   "main": "./dist/index.js",
