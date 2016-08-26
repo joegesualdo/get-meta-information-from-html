@@ -12,8 +12,8 @@ import getMetaInformationFromHTML from '@joegesualdo/get-meta-information-from-h
 
 let html = `
   <head>
-    <meta itemprop="name" content="Watch first lady Michelle Obama’s full speech at the 2016 Democratic National Convention - YouTube">
-    <meta itemprop="description" content="">
+    <meta itemprop="description" content="This is a description">
+    <meta name="title" content="This is a Title">
   </head>
 `
 
