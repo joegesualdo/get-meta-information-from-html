@@ -1,11 +1,5 @@
 ## @joegesualdo/get-meta-information-from-html [![Build Status](https://travis-ci.org/joegesualdo/get-meta-information-from-html.svg?branch=master)](https://travis-ci.org/joegesualdo/get-meta-information-from-html)
-> Get <meta> tags information from HTML.
-
-## Highlights
-
-- Highlight 1
-- Highlight 2
-- Highlight 3
+> Get `<meta>` tags information from HTML.
 
 ## Install
 ```
@@ -14,38 +8,78 @@ $ npm install --save @joegesualdo/get-meta-information-from-html
 
 ## Usage
 ```javascript
-var @joegesualdo/getMetaInformationFromHtml = require("@joegesualdo/getMetaInformationFromHtml").default
+import getMetaInformationFromHTML from '@joegesualdo/get-meta-information-from-html'
 
-// insert code example here
+let html = `
+  <head>
+    <meta itemprop="name" content="Watch first lady Michelle Obama’s full speech at the 2016 Democratic National Convention - YouTube">
+    <meta itemprop="description" content="">
+  </head>
+`
+
+getMetaInformationFromHTML(html)
+.then(result => {
+  console.log(result)
+  //=>[
+  //    {
+  //      typeKey: 'itemprop',
+  //      typeValue: 'description',
+  //      value: 'This is a description' 
+  //    },
+  //    {
+  //      typeKey: 'name',
+  //      typeValue: 'Title',
+  //      value: 'This is a title'
+  //    }
+  // ]
+})
 ```
+> NOTE: Only looks for <meta> tags in the child nodes of the html provided. (Ie. <head><meta><head>)
 
 ## Test
 ```
 $ npm test
 ```
 ## API
-### `methodName(arg1, arg2)`
-> What does this method do?
+### `getMetaInformationFromHTML(html)`
+> Get all the information from <meta> tags within the html provided
 
 | Name | Type | Description |
 |------|------|-------------|
-| arg1 | `Array` | Test description|
-| arg2 | `String` | Test description|
+| html | `String` | The HTML you want to evaluate the <meta> tags from|
 
-Returns: `Array`, of things
+Returns: `Object`, containing these keys: `typeKey`, `typeValue`, and `value`
 
 ```javascript
-var @joegesualdo/getMetaInformationFromHtml = require("@joegesualdo/get-meta-information-from-html").default
+import getMetaInformationFromHTML from '@joegesualdo/get-meta-information-from-html';
 
-// insert method example here
+let html = `
+  <head>
+    <meta itemprop="description" content="This is a description">
+    <meta name="title" content="This is a Title">
+  </head>
+`
+getMetaInformationFromHTML(html)
+.then(result => {
+  console.log(result)
+  //=>[
+  //    {
+  //      typeKey: 'itemprop',
+  //      typeValue: 'description',
+  //      value: 'This is a description' 
+  //    },
+  //    {
+  //      typeKey: 'name',
+  //      typeValue: 'Title',
+  //      value: 'This is a title'
+  //    }
+  // ]
+})
 ```
 ## Build
 ```
 $ npm run build
 ```
-
-## Related
-- [example-package]() - Add description of the example package here.
 
 ## License
 MIT © [Joe Gesualdo]()
